@@ -1,0 +1,71 @@
+Make sure C++ and visual studio is installed according to your OS.
+
+Make sure the graphic drivers are updated, update if necessary.
+
+Install CMake
+
+Install GLFW from: glfw.org/download.html
+
+Install Glad from: glad.dev1d.de
+	Installation intruction:
+		Language: C/C++	
+		Specification: OpenGL
+		API: gl: Version 3.3
+		Profile: Core
+	Click on Generate
+	Download the glad.zip file
+
+Open Visual Studio, create a new Project
+
+Create a Directory: Libraries/include
+					Libraries/lib
+
+Extract glfw.zip
+
+Open CMake: 	
+	Choose 'glfw' as "Where is the source code:".
+	Create 'build' folder in glfw folder.
+	Choose 'build' as "Where to build the binaries:".
+	Click Configure.
+	Click Configure again.
+	Click Generate.
+	Close CMake.
+
+Open to glfw/build/glfw.sln:
+	Right click Solution: 
+		Build Solution
+
+Go to glfw/build/src/Debug: 
+	Cut glfw3.lib and Paste it into our project's Library/lib.
+	
+Go to glfw/include:
+	Cut GLFW folder and Paste it into our project's Library/include.
+
+Now the glfw folder is safe to Delete.
+
+Open glad.zip:
+	Cut contents of include and Paste it into our project's Library/include.
+	Cut glad.c form glad.zip/src and Paste in into our main project File.
+
+Now the glad.zip is safe to Delete.
+
+======================================
+
+In Visual Studio: 
+	Open the Project or Solution File:
+		Go to project - properties - Configuration Properties - VC++ Directories - General:
+			Include Directories: 
+				Select: ProjectName/Libraries/include
+			Libraries Directories:
+				Select: ProjectName/Libraries/lib
+
+		Go to project - properties - Configuration Properties - Linker - Input
+			Additional Dependencies:
+				Add/Enter: glfw3.lib
+					 opengl32.lib
+
+Add glad.c in the Source Files
+Create Main.cpp
+
+Enjoy OpenGL!!
+

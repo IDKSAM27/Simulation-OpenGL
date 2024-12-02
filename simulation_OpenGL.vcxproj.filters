@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{606c1d50-cbe9-4829-b0b5-f08fe8a4673b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{4ff76a84-ab51-4ab7-ad04-0b6e16ec3f82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -60,6 +63,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Documentation.txt" />
+    <Text Include="InitiationProcess.txt">
+      <Filter>Documentation</Filter>
+    </Text>
   </ItemGroup>
 </Project>
