@@ -7,8 +7,6 @@
 #include"VBO.h"
 #include"EBO.h"
 
-
-
 // Vertices coordinates
 GLfloat vertices[] =
 {
@@ -27,7 +25,6 @@ GLuint indices[] =
 	3, 2, 4, // Lower right triangle
 	5, 4, 1 // Upper triangle
 };
-
 
 
 int main()
@@ -62,10 +59,8 @@ int main()
 	glViewport(0, 0, 800, 800);
 
 
-
 	// Generates Shader object using shaders defualt.vert and default.frag
 	Shader shaderProgram("default.vert", "default.frag");
-
 
 
 	// Generates Vertex Array Object and binds it
@@ -83,7 +78,6 @@ int main()
 	VAO1.Unbind();
 	VBO1.Unbind();
 	EBO1.Unbind();
-
 
 
 	// Main while loop
@@ -106,15 +100,17 @@ int main()
 	}
 
 
-
 	// Delete all the objects we've created
 	VAO1.Delete();
 	VBO1.Delete();
 	EBO1.Delete();
 	shaderProgram.Delete();
+
 	// Delete window before ending the program
 	glfwDestroyWindow(window);
+
 	// Terminate GLFW before ending the program
 	glfwTerminate();
 	return 0;
 }
+
