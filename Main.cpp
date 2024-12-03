@@ -1,17 +1,19 @@
 #include<iostream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
+#include<stb/stb_image.h>
 
 #include"shaderClass.h"
 #include"VAO.h"	// Vertex Array Object
 #include"VBO.h" // Vertex Buffer Object
 #include"EBO.h" // Element Buffer Object
 
+/* // Coordinates for triangle(3 triangles within a triangle)
 // Vertices coordinates
 GLfloat vertices[] =
 {
 	// Basically I've added individua color to each vertices 
-	//			COORDINATES							COLORS
+	//			COORDINATES								COLORS
 	-0.5f,  -0.5f * float(sqrt(3)) / 3,		0.0f,  0.8f, 0.3f,  0.02f, // Lower left corner
 	 0.5f,  -0.5f * float(sqrt(3)) / 3,		0.0f,  0.8f, 0.3f,  0.02f, // Lower right corner
 	 0.0f,   0.5f * float(sqrt(3)) * 2 / 3, 0.0f,  1.0f, 0.6f,  0.32f, // Upper corner
@@ -26,6 +28,26 @@ GLuint indices[] =
 	0, 3, 5, // Lower left triangle
 	3, 2, 4, // Lower right triangle
 	5, 4, 1 // Upper triangle
+};
+*/
+
+// Vertices coordinates
+GLfloat vertices[] =
+{
+	// Basically I've added individua color to each vertices 
+	//			COORDINATES								COLORS
+	-0.5f,  -0.5f,	0.0f,		1.0f, 0.0f, 0.0f, // Lower left corner
+	-0.5f,   0.5f,  0.0f,		0.0f, 1.0f, 0.0f, // Upper left corner
+	 0.5f,   0.5f,  0.0f,		0.0f, 0.0f, 1.0f, // Upper right corner
+	 0.5f,  -0.5f,  0.0f,		1.0f, 1.0f, 1.0f, // Lower left corner
+
+};
+
+// Indices for vertices order
+GLuint indices[] =
+{
+	0, 2, 1,	// Upper triangle
+	0, 3, 2		// Lower triangle
 };
 
 
@@ -99,7 +121,7 @@ int main()
 		// Bind the VAO so OpenGL knows to use it
 		VAO1.Bind();
 		// Draw primitives, number of indices, datatype of indices, index of indices
-		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
 		// Take care of all GLFW events
