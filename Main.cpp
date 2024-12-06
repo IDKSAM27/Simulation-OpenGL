@@ -107,6 +107,15 @@ int main()
 	// Gets ID of uniform called "scale"
 	GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale");
 
+
+	// Texture 
+
+	int widthImg, heightImg, numColCh; // numColCh: number of color channels the image has
+	unsigned char* bytes = stbi_load("pop_cat.png", &widthImg, &heightImg, &numColCh, 0);
+
+	GLuint texture;
+	glGenTextures(1, &texture);
+
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -134,6 +143,7 @@ int main()
 	VBO1.Delete();
 	EBO1.Delete();
 	shaderProgram.Delete();
+	glDeleteTextures(1, &texture);
 
 	// Delete window before ending the program
 	glfwDestroyWindow(window);
